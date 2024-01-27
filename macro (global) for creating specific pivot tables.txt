@@ -1,0 +1,103 @@
+Option Explicit
+
+'created by Wiktoria Sliwinska
+
+Sub CreatingPivotTables()
+
+    'unable visibility of windows and alerts
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+    
+    'checking the existence of the table on the current sheet and if it does not exist, creating the table
+    
+    Dim table As ListObject
+    Dim tableExists As Boolean
+    
+    tableExists = (ActiveWorkbook.ActiveSheet.ListObjects.Count > 0)
+    If Not tableExists Then
+        Set table = ActiveWorkbook.ActiveSheet.ListObjects.Add(xlSrcRange, Range("A1").CurrentRegion, , xlYes)
+    table.TableStyle = "TableStyleMedium1"
+    End If
+
+    'framework of a pivot table
+    
+    'defining worksheet variables and data range
+    
+    Dim SourceSheet As Worksheet
+    Dim PivotSheet As Worksheet
+    Dim RangeData As Range
+    
+    Set SourceSheet = ActiveSheet
+    Set PivotSheet = ActiveWorkbook.Sheets.Add(After:=SourceSheet)
+    Set RangeData = SourceSheet.Range("A1").CurrentRegion
+    
+    'creating a pivot table
+    
+    Dim PivotCache As PivotCache
+    Dim PivotTable As PivotTable
+    
+    Set PivotCache = ActiveWorkbook.PivotCaches.Create( _
+        SourceType:=xlDatabase, SourceData:=RangeData)
+    
+    Set PivotTable = PivotCache.CreatePivotTable( _
+        TableDestination:=PivotSheet.Cells(4, 2), TableName:="WorkingPivotTable")
+    
+    'defining field names / defining fields collection of a pivot table
+    
+    Dim PageName As String
+    Dim RowName1 As String
+    Dim RowName2 As String
+    'Dim ColumnName As String
+    Dim DataName As String
+    
+    PageName = "Company Code"
+    RowName1 = "Trading partner"
+    RowName2 = "Document currency"
+    'ColumnName =
+    DataName = "Amount in doc. curr."
+    
+    'configuration of pivot table fields
+    
+    With PivotTable
+        .PivotFields(PageName).Orientation = xlPageField
+        .PivotFields(RowName1).Orientation = xlRowField
+        .PivotFields(RowName2).Orientation = xlRowField
+        '.PivotFields(ColumnName).Orientation = xlColumnField
+        .PivotFields(DataName).Orientation = xlDataField
+    End With
+    
+    
+    'loop through all pivot fields and remove subtotals
+        Dim PvtField As PivotField
+    For Each PvtField In PivotTable.PivotFields
+        PvtField.Subtotals(1) = True
+        PvtField.Subtotals(1) = False
+    Next PvtField
+    
+    'show pivot table in tabular form
+    PivotTable.RowAxisLayout xlTabularRow
+    
+    'set comma style (format with a thousands separator)
+    PivotSheet.Columns("D:D").Style = "Comma"
+    
+    'set autofit on columns
+    PivotSheet.Columns("B:D").AutoFit
+    
+    'set focus on cell A1
+    PivotSheet.Range("A1").Select
+    
+    
+    'saving file
+    ActiveWorkbook.Save
+    
+    
+    'enable visibility of windows and alerts
+    Application.ScreenUpdating = True
+    Application.DisplayAlerts = True
+    
+    
+    'display message
+    MsgBox "Pivot Table is ready.", vbInformation, "Information"
+
+
+End Sub
