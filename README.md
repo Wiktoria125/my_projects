@@ -3,8 +3,8 @@ In this repository, you will find various projects related to VBA programming, s
 
 ### Standout Features:
 - **Automation in Excel:** projects include real examples to automate routine spreadsheet tasks, increasing efficiency and eliminating monotonous tasks.
-- ** Data Manipulation: Power Query projects demonstrate the ability to transform and clean datasets efficiently.
-- ** Data Modeling: Power Pivot projects showcase the creation of data models, enabling data analysis.
+- **Data Manipulation:** Power Query projects demonstrate the ability to transform and clean datasets efficiently.
+- **Data Modeling:** Power Pivot projects showcase the creation of data models, enabling data analysis.
 - **Data Analysis:** Using VBA to create macros that enable data analysis, refresh data, generating reports and presentations in a simple way.
 - **SAP Integration:** SAP Scripting projects include scripts to interact with the SAP system, facilitating integration and automation of business processes.
   
