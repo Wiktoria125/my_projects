@@ -1,5 +1,6 @@
-### My projects: Excel, VBA, SAP Scripting, Power Query, Power Pivot, Data Analysis, Data Visualization
-In this repository, you will find various projects related to VBA programming, scripting in the SAP environment, as well as projects showcasing skills in Power Query, Power Pivot, and Excel-based data analysis and visualization. Tasks include automating tasks in spreadsheets, scripts for cooperation with the SAP system, data manipulation and analysis using Power Query and Power Pivot, as well as advanced data analysis and visualization techniques using Excel.
+### My projects: 
+Excel, VBA, SAP Scripting, Power Query, Power Pivot, Data Analysis, Data Visualization
+In this repository, you will find various projects related to VBA programming, scripting in the SAP environment, as well as projects showcasing skills in Power Query, Power Pivot and Excel-based data analysis and visualization. Tasks include automating tasks in spreadsheets, scripts for cooperation with the SAP system, data manipulation and analysis using Power Query and Power Pivot, as well as advanced data analysis and visualization techniques using Excel.
 
 ### Standout Features:
 - **Automation:** Excel projects leverage real examples to automate routine tasks, improving efficiency and reducing repetitive work. Through the use of VBA macros, these automations simplify data analysis, refresh datasets, generate reports and presentations. Additionally, SAP scripting projects utilize scripts to interact with the SAP system, enabling seamless integration and automation of business processes.
